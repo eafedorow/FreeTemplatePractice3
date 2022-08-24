@@ -3,6 +3,7 @@
 @import 'reset';
 @import 'libs';
 @import 'global';
+@import 'about';
 
 
 // HEADER
@@ -40,6 +41,21 @@
         @extend %title-font;
         color: rgba(54, 56, 56, 0.9033);
         line-height: 22px;
+    }
+
+    &__list-link--active {
+      padding-bottom: 4px;
+      position: relative;
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        border-radius: 1px;
+        background-color: rgba($title, .7);
+      }
     }
 }
 
@@ -115,6 +131,28 @@
 }
 // END OF SIDEMENU
 
+.breadcrumbs {
+  background: rgba(#dfdfdf, .5);
+  padding: 12px 14px;
+
+  &__list {
+    display: flex;
+    list-style: none;
+  }
+
+  &__item::after {
+    content: '/';
+    margin-left: -4px;
+    margin-right: 4px;
+  }
+  &__item:last-child::after {
+    content: '';
+  }
+  &__link {
+    font-size: 14px;
+    color: #5a5a5a;
+  }
+}
 
 // TOP
 .top {
@@ -179,7 +217,7 @@
 // NEW COLLECTION
 .new-collection {
   text-align: center;
-  padding: 45px 0 105px;
+  padding: 45px 0 35px;
 
   &__title {
     color: $title;
@@ -214,6 +252,7 @@
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-gap: 30px;
+  padding-bottom: 70px;
 
   &__item {
     position: relative;
